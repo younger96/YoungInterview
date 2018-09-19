@@ -1,5 +1,8 @@
 package com.example.chenqiuyang.younginterview.algorithm;
 
+import android.os.Handler;
+import android.os.Message;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,28 +15,26 @@ import java.util.List;
 public class Test {
     public static void main(String arg[]) {
         System.out.println("hello java");
+        StaticTe staticTe1 = new StaticTe();
+        StaticTe staticTe2 = new StaticTe();
+        staticTe1.ST  += 1 ;
+        staticTe2.ST  += 1 ;
+        System.out.println(staticTe1.ST);
+        System.out.println(staticTe2.ST);
+        Handler handler = new Handler();
+        Message message = handler.obtainMessage();
 
-    }
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(1000);
 
-
-    public static void fizzBuzz(int n) {
-        // write your code here
-        if(n<=0){
-            return;
-        }
-
-
-        List<String> arr = new ArrayList<>();
-        for (int i=1;i<=n ;i++){
-            String a;
-            a = ""+i;
-            if(i%3 == 0 || i%5 == 0){
-                a = (i%15 == 0)?"fizz buzz":((n%3 == 0)? "fizz":"buzz");
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
-            arr.add(a);
-            System.out.println(""+a);
-        }
+        });
 
-       // return arr;
     }
 }

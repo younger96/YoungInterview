@@ -14,7 +14,7 @@ public class BitmapActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bitmap);
         Glide.with(this)
-                .load("")
+                .load("http://baidu.com.img")
                 .into(imageView);
     }
 }

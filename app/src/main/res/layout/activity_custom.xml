@@ -5,12 +5,12 @@
 
 
 
-    <com.example.chenqiuyang.younginterview.customView.SlideContentLayout
+    <com.example.chenqiuyang.younginterview.customView.dispatch.SlideContentLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/holo_purple">
 
-        <com.example.chenqiuyang.younginterview.customView.MyView1
+        <com.example.chenqiuyang.younginterview.customView.dispatch.MyView1
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_centerInParent="true"
@@ -21,6 +21,6 @@
             android:text="myView" />
 
 
-    </com.example.chenqiuyang.younginterview.customView.SlideContentLayout>
+    </com.example.chenqiuyang.younginterview.customView.dispatch.SlideContentLayout>
 
 </RelativeLayout>
