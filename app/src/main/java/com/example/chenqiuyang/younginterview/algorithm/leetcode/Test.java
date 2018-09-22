@@ -7,9 +7,11 @@ public class Test {
 
 
     public static void main(String arg[]) {
+        //343. 整数拆分 动态规划 测试用例
+        System.out.println(Solution.breakInteger(10));
 
         //122. 买卖股票的最佳时机 II
-        System.out.println(Solution.maxProfitII(new int[]{7,1,5,3,6,4}));
+//        System.out.println(Solution.maxProfitII(new int[]{7,1,5,3,6,4}));
 
         //121. 买卖股票的最佳时机 滑动窗口 测试用例
 //        System.out.println(Solution.maxProfit(new int[]{7,1,5,3,6,4}));

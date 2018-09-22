@@ -12,39 +12,51 @@ import java.util.List;
  */
 public class Solution {
 
+    /**
+     * 343. 整数拆分
+     * 动态规划
+     */
+    public static int integerBreak(int n) {
+        if (n<0){
+            return 0;
+        }
 
+        if (n == 1){
+            return 1;
+        }
 
-//    /**
-//     * 343. 整数拆分
-//     * 动态规划
-//     */
-//    public static int integerBreak(int n) {
-//        if (n<0){
-//            return 0;
-//        }
-//
-//
-//        if (n == 1){
-//            return 1;
-//        }
-//
-//        return integerBreak()
-//    }
-//
-//    // 343. 整数拆分 递归算法
-//    //将n进行分割（至少为两部分，可以获得最大乘机）
-//    public static int integerBreak(int n) {
-//        if (n<0){
-//            return 0;
-//        }
-//
-//
-//        if (n == 1){
-//            return 1;
-//        }
-//
-//
-//    }
+        return breakInteger(n);
+    }
+
+    // 343. 整数拆分 递归算法
+    //将n进行分割（至少为两部分，可以获得最大乘机）
+    static List<Integer> breakList = new ArrayList<>();//存储最优解
+    public static int breakInteger(int n) {
+        if (n == 1){
+            return 1;
+        }
+        int res = -1;
+        for (int i = 1; i < n; i++) {
+
+            if(i <= breakList.size()){
+                res = max3(res,i*(n-i),i*breakList.get(i-1));
+            }else {
+                int cur = i*breakInteger(n-i);
+                breakList.add(cur);
+                res = max3(res,i*(n-i),cur);
+            }
+
+        }
+        return res;
+    }
+
+    public static int max(int i,int j){
+        return i>j?i:j;
+    }
+
+    public static int max3(int i,int j,int k){
+        return max(i,j)>k?max(i,j):k;
+    }
 
 
     //判断是否是回文串  125
