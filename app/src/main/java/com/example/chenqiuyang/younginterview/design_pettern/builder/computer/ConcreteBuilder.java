@@ -1,4 +1,4 @@
-package com.example.chenqiuyang.younginterview.design_pettern.builder;
+package com.example.chenqiuyang.younginterview.design_pettern.builder.computer;
 
 //装机人员1
   public class ConcreteBuilder extends Builder{

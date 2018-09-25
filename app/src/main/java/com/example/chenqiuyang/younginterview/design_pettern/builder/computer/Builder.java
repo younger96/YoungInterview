@@ -1,4 +1,4 @@
-package com.example.chenqiuyang.younginterview.design_pettern.builder;
+package com.example.chenqiuyang.younginterview.design_pettern.builder.computer;
 
 /**
  * 定义组装的过程（Builder）：组装电脑的过程

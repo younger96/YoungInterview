@@ -1,4 +1,4 @@
-package com.example.chenqiuyang.younginterview.design_pettern.builder;
+package com.example.chenqiuyang.younginterview.design_pettern.builder.computer;
 
 public class Director {
     //指挥装机人员组装电脑

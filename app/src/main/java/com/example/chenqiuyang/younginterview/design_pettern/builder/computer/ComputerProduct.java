@@ -1,4 +1,4 @@
-package com.example.chenqiuyang.younginterview.design_pettern.builder;
+package com.example.chenqiuyang.younginterview.design_pettern.builder.computer;
 
 import java.util.ArrayList;
 import java.util.List;
