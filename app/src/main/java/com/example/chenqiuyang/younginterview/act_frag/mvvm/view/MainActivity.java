@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         UserBean userBean = getIntent().getParcelableExtra(EXTRA_USER);
         mainViewModel = new MainViewModel(this,userBean);
+        binding.setViewmodel(mainViewModel);
+
     }
 
 

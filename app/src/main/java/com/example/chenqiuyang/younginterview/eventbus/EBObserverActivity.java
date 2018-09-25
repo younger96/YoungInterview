@@ -20,9 +20,10 @@ import butterknife.OnClick;
 
 /**
  * 接受消息
+ * 观察者
  */
-public class EventBusActivity extends Activity {
-    private static final String TAG = "EventBusActivity";
+public class EBObserverActivity extends Activity {
+    private static final String TAG = "EBObserverActivity";
     @BindView(R.id.button4)
     Button button4;
 

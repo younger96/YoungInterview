@@ -15,6 +15,7 @@ import butterknife.OnClick;
 
 /**
  * 发布消息
+ * 被观察者
  */
 public class SubjectActivity extends Activity {
 
@@ -35,5 +36,8 @@ public class SubjectActivity extends Activity {
     @OnClick(R.id.button3)
     public void click(){
         EventBus.getDefault().post(new MyEvent("Just do it"));
+
+        //发送粘性事件
+        EventBus.getDefault().postSticky(new MyEvent("Later do it"));
     }
 }
