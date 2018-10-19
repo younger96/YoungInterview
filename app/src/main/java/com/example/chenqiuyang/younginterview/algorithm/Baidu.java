@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Baidu {
 
     public static void main(String arg[]) {
+
         Scanner in = new Scanner(System.in);
         int n = Integer.parseInt(in.nextLine().trim());
         int[] arr = new int[n];
