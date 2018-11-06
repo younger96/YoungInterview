@@ -1,6 +1,4 @@
-package com.skyplan.moment.libcore.rpc;
-
-import android.support.annotation.WorkerThread;
+package com.example.chenqiuyang.younginterview.rpc;
 
 /**
  * Created by lihaibiao on 2018/5/10 16:18
