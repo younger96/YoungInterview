@@ -28,6 +28,8 @@ public class ZZoomImageView extends ImageView implements View.OnTouchListener, S
 
     Animator animatorY, animatorX;
 
+    private int mCurLeft,mCurTop,mCurRight,mCurBottom;
+    private int mMoveLeft,mMoveRight,mMoveTop,mMoveBottom;
     /**
      * 最大放大倍数
      */
@@ -191,17 +193,27 @@ public class ZZoomImageView extends ImageView implements View.OnTouchListener, S
     public boolean onScale(ScaleGestureDetector detector) {
         float scaleFactor = detector.getScaleFactor();
 
+//        if (isReturn){
+//            return true;
+//        }
+
+//        detector.getFocusX()
+
         Log.i(TAG, "onScale: "+scaleFactor);
         if (scaleFactor >= 1f){
-            if (scaleFactor >= 1.02f) {
+            if (scaleFactor >= 1.05f) {
                 curScale += 0.2;
+                Log.i(TAG, "onLargeScale: "+curScale);
+                isReturn = true;
                 startScale();
                 return true;
             }
             return false;
         }else {
-            if (scaleFactor < 0.98f) {
+            if (scaleFactor < 0.95f) {
                 curScale -= 0.2;
+                isReturn = true;
+                Log.i(TAG, "onShortScale: "+curScale);
                 startScale();
                 return true;
             }
@@ -223,21 +235,27 @@ public class ZZoomImageView extends ImageView implements View.OnTouchListener, S
 
     }
 
+    boolean isReturn = false;
+
     public void startScale(){
+//        reLayoutView();
         if (curScale >= SCALE_MAX) {
             curScale = SCALE_MAX;
         } else if (curScale <= SCALE_MIN) {
             curScale = SCALE_MIN;
         }
 
-        Log.i(TAG, "onScaleEnd: " + curScale);
+        Log.i(TAG, "onEndScale: " + curScale);
         //设置缩放比例
         animatorX = ObjectAnimator.ofFloat(this, "ScaleY", curScale);
         animatorY = ObjectAnimator.ofFloat(this, "ScaleX", curScale);
-        animatorY.setDuration(100);
-        animatorX.setDuration(100);
+        animatorY.setDuration(0);
+        animatorX.setDuration(0);
         animatorY.start();
         animatorX.start();
+
+
+        isReturn = false;
     }
 
     boolean once = true;
@@ -246,6 +264,14 @@ public class ZZoomImageView extends ImageView implements View.OnTouchListener, S
     public void onGlobalLayout() {
         if (!once)
             return;
+//
+//        mCurLeft = getLeft();
+//        mCurTop = getTop();
+//        mCurBottom = getBottom();
+//        mCurRight = getRight();
+//        mCurLeft = 20;
+//        mCurRight = 20;
+//        Log.i(TAG, "onGlobalLayout: "+mCurLeft+ "  "+mCurTop +"  "+mCurRight+"  "+mCurBottom);
         Drawable d = getDrawable();
         if (d == null)
             return;
@@ -273,5 +299,14 @@ public class ZZoomImageView extends ImageView implements View.OnTouchListener, S
         scaleMatrix.postScale(scale, scale, getWidth() / 2, getHeight() / 2);
         setImageMatrix(scaleMatrix);
         once = false;
+    }
+
+
+    private void reLayoutView(){
+        mCurLeft = (int) (mCurLeft+mCurLeft*0.5);
+        mCurTop = (int) (mCurTop+mCurTop*0.5);
+        mCurBottom = (int) (mCurBottom-mCurBottom*0.5);
+        mCurRight = (int) (mCurRight-mCurRight*0.5);
+        this.layout(mCurLeft,mCurTop,mCurRight,mCurBottom);
     }
 }

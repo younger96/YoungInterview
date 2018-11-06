@@ -15,7 +15,7 @@
 //import com.skyplan.moment.libbasic.utils.AppUtils;
 //import com.skyplan.moment.libbasic.utils.NetworkUtils;
 //import com.skyplan.moment.libbasic.utils.SLog;
-//import com.skyplan.moment.libbasic.utils.ThreadPool;
+//import com.skyplan.moment.libbasic.utils.ThreadPoolManager;
 //import com.skyplan.moment.libbasic.utils.TimeUtils;
 //import com.skyplan.moment.libcomm.deviceinfo.DeviceInfo;
 //import com.skyplan.moment.libcomm.storage.StorageMgr;
@@ -198,7 +198,7 @@
 //            requestPath = HTTPS + DOMAIN + requestPath;
 //        }
 //        final String finalRequestPath = requestPath;
-//        ThreadPool.shorter().execute(new Runnable() {
+//        ThreadPoolManager.shorter().execute(new Runnable() {
 //            @Override
 //            public void run() {
 //                final boolean isNetConnected = NetworkUtils.isConnected();

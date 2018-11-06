@@ -5,7 +5,7 @@
 //import android.text.TextUtils;
 //
 //
-//import com.example.chenqiuyang.younginterview.multiThread.thread_pool.ThreadPool;
+//import com.example.chenqiuyang.younginterview.multiThread.thread_pool.ThreadPoolManager;
 //
 //import java.lang.reflect.Method;
 //
@@ -34,7 +34,7 @@
 //
 //    @Override
 //    public final void onResponse(final Call<ResponseBody> call, final Response<ResponseBody> response) {
-//        ThreadPool.shorter().execute(new Runnable() {
+//        ThreadPoolManager.shorter().execute(new Runnable() {
 //            @Override
 //            public void run() {
 //                handleResponse(call,response);
@@ -49,7 +49,7 @@
 //        } catch (Exception e) {
 //            e.printStackTrace();
 //        }
-//        ThreadPool.shorter().execute(new Runnable() {
+//        ThreadPoolManager.shorter().execute(new Runnable() {
 //            @Override
 //            public void run() {
 //                HttpModule.log(reqInfo,"onFailure msg = " + t.getMessage());

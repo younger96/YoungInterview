@@ -51,4 +51,7 @@ dependencies {
     debugApi 'com.squareup.leakcanary:leakcanary-android:1.5.4'
     releaseApi 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.2'
     implementation 'org.greenrobot:greendao:3.2.2'
+    implementation "android.arch.work:work-runtime:1.0.0-alpha01"
+
+
 }

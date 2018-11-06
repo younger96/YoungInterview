@@ -23,11 +23,10 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-
 /**
- * Created by haibiao on 2017/12/1.
+ * 提供多个线程池选择
+ * 根据不同的业务需要选择不同的线程池
  */
-
 public abstract class AbsThreadPool {
     private static final String TAG = "AbsThreadPool";
     public static final String KEY_DEFAULT = "default";

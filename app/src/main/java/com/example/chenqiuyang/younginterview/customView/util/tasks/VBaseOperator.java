@@ -24,7 +24,7 @@ public abstract class VBaseOperator implements IVOperator, Runnable {
     protected void executeRunnable(Runnable runnable) {
         if (runnable != null) {
             if (Looper.myLooper() == Looper.getMainLooper()) {
-//                ThreadPool.shorter().execute(runnable);
+//                ThreadPoolManager.shorter().execute(runnable);
             } else {
                 runnable.run();
             }

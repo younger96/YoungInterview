@@ -9,10 +9,12 @@ import java.util.concurrent.RejectedExecutionHandler;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-public class ThreadPool// extends AbsThreadPool
-{
-    private static final String TAG = "ThreadPool";
-    private static final AbsThreadPool sPool = new ThreadPoolImpl();
+/**
+ * 提供多个线程池选择
+ */
+public class ThreadPoolManager {
+    private static final String TAG = "ThreadPoolManager";
+    private static final AbsThreadPool sPool = new ThreadPool();
 
     public static AbsThreadPool.Proxy shorter() {
         return sPool.shorter();
@@ -59,7 +61,8 @@ public class ThreadPool// extends AbsThreadPool
         sPool.removeReference(referable);
     }
 
-    public static class ThreadPoolImpl extends AbsThreadPool {
+
+    public static class ThreadPool extends AbsThreadPool {
 
         @Override
         protected synchronized Proxy generatePool(String type,String name) {
