@@ -14,7 +14,8 @@
         <activity android:name=".act_frag.mvvm.view.MainActivity">
         </activity>
 
-        <activity android:name=".customView.guesture.ImageActivity">
+
+        <activity android:name=".act_frag.mvvm.view.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
