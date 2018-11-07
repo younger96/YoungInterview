@@ -219,10 +219,6 @@ public class ZZoomImageView extends ImageView implements View.OnTouchListener, S
             }
             return false;
         }
-
-
-
-
     }
 
     @Override
@@ -264,14 +260,6 @@ public class ZZoomImageView extends ImageView implements View.OnTouchListener, S
     public void onGlobalLayout() {
         if (!once)
             return;
-//
-//        mCurLeft = getLeft();
-//        mCurTop = getTop();
-//        mCurBottom = getBottom();
-//        mCurRight = getRight();
-//        mCurLeft = 20;
-//        mCurRight = 20;
-//        Log.i(TAG, "onGlobalLayout: "+mCurLeft+ "  "+mCurTop +"  "+mCurRight+"  "+mCurBottom);
         Drawable d = getDrawable();
         if (d == null)
             return;
@@ -302,11 +290,11 @@ public class ZZoomImageView extends ImageView implements View.OnTouchListener, S
     }
 
 
-    private void reLayoutView(){
-        mCurLeft = (int) (mCurLeft+mCurLeft*0.5);
-        mCurTop = (int) (mCurTop+mCurTop*0.5);
-        mCurBottom = (int) (mCurBottom-mCurBottom*0.5);
-        mCurRight = (int) (mCurRight-mCurRight*0.5);
-        this.layout(mCurLeft,mCurTop,mCurRight,mCurBottom);
-    }
+//    private void reLayoutView(){
+//        mCurLeft = (int) (mCurLeft+mCurLeft*0.5);
+//        mCurTop = (int) (mCurTop+mCurTop*0.5);
+//        mCurBottom = (int) (mCurBottom-mCurBottom*0.5);
+//        mCurRight = (int) (mCurRight-mCurRight*0.5);
+//        this.layout(mCurLeft,mCurTop,mCurRight,mCurBottom);
+//    }
 }

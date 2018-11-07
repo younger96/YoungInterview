@@ -7,8 +7,9 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.Button;
+import android.widget.ImageView;
 
-public class YoungButton extends Button {
+public class YoungButton extends ImageView {
     float beginY;
     float lastY;
     Animator animatorY,animatorX;
@@ -45,7 +46,7 @@ public class YoungButton extends Button {
                         scaleNum = 0.5f;
                     }
                 }
-
+                Log.i(TAG, "onTouchEvent: "+scaleNum);
                 animatorX = ObjectAnimator.ofFloat(this,"ScaleY",scaleNum);
                 animatorY = ObjectAnimator.ofFloat(this,"ScaleX",scaleNum);
                 animatorY.setDuration(0);
