@@ -16,7 +16,7 @@
         </activity>
 
 
-        <activity android:name=".customView.guesture.ImageActivity">
+        <activity android:name=".customView.view.MyActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

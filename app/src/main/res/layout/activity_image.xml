@@ -6,10 +6,9 @@
     android:layout_height="match_parent">
 
 
-    <com.example.chenqiuyang.younginterview.customView.view.YoungButton
+    <com.example.chenqiuyang.younginterview.customView.view.CircleSexView
         android:src="@mipmap/ic_launcher"
-        android:clickable="true"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_width="60dp"
+        android:layout_height="60dp" />
 
 </LinearLayout>
