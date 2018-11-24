@@ -74,7 +74,7 @@ public class RestCreator {
         private static final int TIME_OUT = 60;
         private static final OkHttpClient.Builder BUILDER = new OkHttpClient.Builder();
 //        private static final ArrayList<Interceptor> INTERCEPTORS
-//                = App.getConfiguration(ConfigKeys.INTERCEPTOR);
+//                = MyApp.getConfiguration(ConfigKeys.INTERCEPTOR);
 
         //添加拦截器
         private static OkHttpClient.Builder addInterceptor(){

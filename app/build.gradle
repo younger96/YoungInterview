@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao' // apply plugin
 
 android {
     compileSdkVersion 27
@@ -21,6 +22,12 @@ android {
     dataBinding {
         enabled = true
     }
+}
+
+greendao {
+    schemaVersion 1 //数据库版本号
+    daoPackage 'com.example.chenqiuyang.younginterview.cache.greendao'// 设置DaoMaster、DaoSession、Dao 包名
+    targetGenDir 'src/main/java'//设置DaoMaster、DaoSession、Dao目录
 }
 
 dependencies {
@@ -61,6 +68,6 @@ dependencies {
     //For Room
     api "android.arch.persistence.room:runtime:1.1.1"
     annotationProcessor "android.arch.persistence.room:compiler:1.1.1"
-
+    api 'org.greenrobot:greendao:3.2.2' // add library
 
 }

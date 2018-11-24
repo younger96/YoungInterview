@@ -4,7 +4,7 @@
     package="com.example.chenqiuyang.younginterview">
 
     <application
-        android:name=".util.App"
+        android:name=".util.MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -16,7 +16,7 @@
         </activity>
 
 
-        <activity android:name=".customView.view.MyActivity">
+        <activity android:name="com.example.chenqiuyang.younginterview.cache.greendao.TestActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

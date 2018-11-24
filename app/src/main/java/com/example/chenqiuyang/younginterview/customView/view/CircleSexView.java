@@ -32,7 +32,7 @@ public class CircleSexView extends ImageView {
     public CircleSexView(Context context, AttributeSet attrs) {
         super(context, attrs);
         isDraw = true;
-        mSexPath = R.drawable.btn_profile_addfriend;
+        mSexPath = R.drawable.ic_headset_black_24dp;
         mPaint = new Paint();
     }
 
