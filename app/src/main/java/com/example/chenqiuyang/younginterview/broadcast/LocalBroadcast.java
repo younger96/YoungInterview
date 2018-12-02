@@ -30,5 +30,6 @@ public class LocalBroadcast {
 
     public static void sendMsg(Context context,String action) {
         getManagerInstance(context).sendBroadcast(new Intent(action));
+        
     }
 }
