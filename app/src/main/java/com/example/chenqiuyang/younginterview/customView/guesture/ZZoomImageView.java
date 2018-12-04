@@ -26,10 +26,9 @@ public class ZZoomImageView extends ImageView implements View.OnTouchListener, S
     @SuppressWarnings("unused")
     private static final String TAG = "ZZoomImageView";
 
-    Animator animatorY, animatorX;
 
-    private int mCurLeft,mCurTop,mCurRight,mCurBottom;
-    private int mMoveLeft,mMoveRight,mMoveTop,mMoveBottom;
+    private int mCurLeft, mCurTop, mCurRight, mCurBottom;
+    private int mMoveLeft, mMoveRight, mMoveTop, mMoveBottom;
     /**
      * 最大放大倍数
      */
@@ -38,7 +37,7 @@ public class ZZoomImageView extends ImageView implements View.OnTouchListener, S
     /**
      * 默认缩放
      */
-    public static final float SCALE_MIN = 1f;
+    public static final float SCALE_MIN = 0.1f;
 
     /**
      * 手势检测
@@ -187,38 +186,58 @@ public class ZZoomImageView extends ImageView implements View.OnTouchListener, S
     }
 
     //----------------------implement OnScaleGestureListener------------------------//
-    private float curScale = SCALE_MIN;
-
+    private float curScale = 1;
+    private float preScale = 1;
+    private float mFirstSpan ; //第一次按下去的时候手指间距
+    private float mPreSpan ; //第一次按下去的时候手指间距
+    private float mCurSpan ; //上一次按下去的时候手指间距
+    private boolean isInit = false;
     @Override
     public boolean onScale(ScaleGestureDetector detector) {
-        float scaleFactor = detector.getScaleFactor();
-
-//        if (isReturn){
-//            return true;
+//        float scaleFactor = detector.getScaleFactor();
+//
+//        Log.i(TAG, "onScale: " + scaleFactor);
+//        if (scaleFactor < 1.5f && scaleFactor > 0.95) {
+//            return false;
+//        } else {
+//            if (scaleFactor > 1) {
+//                curScale += 0.1;
+//                Log.i(TAG, "onLargeScale: " + curScale);
+//            } else {
+//                curScale -= 0.1;
+//                Log.i(TAG, "onShortScale: " + curScale);
+//            }
+////            isReturn = true;
+//            startScale(curScale);
 //        }
+//        return false;
 
-//        detector.getFocusX()
 
-        Log.i(TAG, "onScale: "+scaleFactor);
-        if (scaleFactor >= 1f){
-            if (scaleFactor >= 1.05f) {
-                curScale += 0.2;
-                Log.i(TAG, "onLargeScale: "+curScale);
-                isReturn = true;
-                startScale();
-                return true;
-            }
-            return false;
-        }else {
-            if (scaleFactor < 0.95f) {
-                curScale -= 0.2;
-                isReturn = true;
-                Log.i(TAG, "onShortScale: "+curScale);
-                startScale();
-                return true;
-            }
-            return false;
+//        Log.i(TAG, "onScale: "+detector.getScaleFactor());
+//        if (detector.getScaleFactor() < 1.2) {
+//            return false;
+//        }
+//        return true;
+        if (!isInit){
+            mFirstSpan = detector.getPreviousSpan();
+            mPreSpan = mFirstSpan;
         }
+
+        mCurSpan = detector.getCurrentSpan();// 本次双指间距
+
+        Log.i(TAG, "onScale: "+mPreSpan+"  "+mCurSpan);
+        if (Math.abs(mPreSpan-mCurSpan)>10){
+            if (mCurSpan < mPreSpan) {  // 缩小
+                curScale = curScale-0.06f;
+            } else {
+                // 放大
+                curScale = curScale+0.06f;
+            }
+            startScale(curScale);
+            mPreSpan = mCurSpan;
+        }
+        // 缩放view
+        return false;
     }
 
     @Override
@@ -228,30 +247,25 @@ public class ZZoomImageView extends ImageView implements View.OnTouchListener, S
 
     @Override
     public void onScaleEnd(ScaleGestureDetector detector) {
-
+        preScale = curScale;// 记录本次缩放比例
     }
 
-    boolean isReturn = false;
+//    boolean isReturn = false;
 
-    public void startScale(){
+    public void startScale(float scale) {
 //        reLayoutView();
-        if (curScale >= SCALE_MAX) {
-            curScale = SCALE_MAX;
-        } else if (curScale <= SCALE_MIN) {
-            curScale = SCALE_MIN;
-        }
-
-        Log.i(TAG, "onEndScale: " + curScale);
+//        if (curScale >= SCALE_MAX) {
+//            curScale = SCALE_MAX;
+//        } else if (curScale <= SCALE_MIN) {
+//            curScale = SCALE_MIN;
+//        }
+//        Log.i(TAG, "onEndScale: " + curScale);
         //设置缩放比例
-        animatorX = ObjectAnimator.ofFloat(this, "ScaleY", curScale);
-        animatorY = ObjectAnimator.ofFloat(this, "ScaleX", curScale);
-        animatorY.setDuration(0);
-        animatorX.setDuration(0);
-        animatorY.start();
-        animatorX.start();
+        this.setScaleX(scale);
+        this.setScaleY(scale);
 
 
-        isReturn = false;
+//        isReturn = false;
     }
 
     boolean once = true;

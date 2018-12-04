@@ -1,6 +1,7 @@
 package com.example.chenqiuyang.younginterview.util;
 
 import android.app.Application;
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.chenqiuyang.younginterview.cache.greendao.DaoMaster;
@@ -10,11 +11,17 @@ import com.squareup.leakcanary.LeakCanary;
 public class MyApp extends Application {
     private DaoSession daoSession;
     private DaoMaster daoMaster;
+    private static Context mContext;
     @Override
     public void onCreate() {
         super.onCreate();
         LeakCanary.install(this);
         initGreenDAO();
+        mContext = this;
+    }
+
+    public static Context getmContext(){
+        return mContext;
     }
 
     private void initGreenDAO() {

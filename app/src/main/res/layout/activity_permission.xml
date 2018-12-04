@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="RECORD"
+        android:id="@+id/btn_record"/>
+
+    <com.example.chenqiuyang.younginterview.customView.view.ScaleButton
+        android:background="@drawable/icon_now_list_nick_mask"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SD"
+        android:id="@+id/btn_sd"/>
+
+
+    <com.example.chenqiuyang.younginterview.customView.view.ColorFulTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="55sp"
+        android:textStyle="bold"
+        android:text="hhhhhhhhhhhhhhhhhhhhhhhhhhh"/>
+
+</LinearLayout>

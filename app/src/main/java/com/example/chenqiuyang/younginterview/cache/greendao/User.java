@@ -18,6 +18,8 @@ public class User {
 
     private int age;
 
+
+
     @Generated(hash = 446251977)
     public User(long id, String name, int age) {
         this.id = id;

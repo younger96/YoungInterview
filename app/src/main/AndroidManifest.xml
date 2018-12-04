@@ -3,6 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.chenqiuyang.younginterview">
 
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
     <application
         android:name=".util.MyApp"
         android:allowBackup="true"
@@ -16,12 +20,12 @@
         </activity>
 
 
-        <activity android:name="com.example.chenqiuyang.younginterview.cache.greendao.TestActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name="com.example.chenqiuyang.younginterview.permisson.PermissionActivity">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        </activity>
+
+        <activity android:name="com.example.chenqiuyang.younginterview.cache.greendao.TestActivity">
+
         </activity>
 
         <activity android:name=".multiThread.PCActivity">
@@ -29,8 +33,12 @@
         </activity>
 
 
-        <activity android:name=".customView.dispatch.CustomActivity">
+        <activity android:name=".Test">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

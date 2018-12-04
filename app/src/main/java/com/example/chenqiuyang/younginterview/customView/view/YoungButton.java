@@ -9,17 +9,15 @@ import android.view.MotionEvent;
 import android.widget.Button;
 import android.widget.ImageView;
 
-public class YoungButton extends ImageView {
+public class YoungButton extends Button {
     float beginY;
     float lastY;
-    Animator animatorY,animatorX;
     float scaleNum;
     private static final String TAG = "YoungButton";
 
     public YoungButton(Context context) {
         this(context,null);
         scaleNum = 1f;
-
     }
 
     public YoungButton(Context context, AttributeSet attrs) {
@@ -30,9 +28,13 @@ public class YoungButton extends ImageView {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         switch (event.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                Log.i(TAG, "onTouchEvent: down");
+                beginY = event.getY();
+                break;
             case MotionEvent.ACTION_UP:
+                Log.i(TAG, "onTouchEvent: up");
                 lastY = event.getY();
-
               break;
             case MotionEvent.ACTION_MOVE:
                 if ((beginY - event.getY())>0){
@@ -46,17 +48,9 @@ public class YoungButton extends ImageView {
                         scaleNum = 0.5f;
                     }
                 }
-                Log.i(TAG, "onTouchEvent: "+scaleNum);
-                animatorX = ObjectAnimator.ofFloat(this,"ScaleY",scaleNum);
-                animatorY = ObjectAnimator.ofFloat(this,"ScaleX",scaleNum);
-                animatorY.setDuration(0);
-                animatorX.setDuration(0);
-                animatorY.start();
-                animatorX.start();
-                break;
-            case MotionEvent.ACTION_DOWN:
-                beginY = event.getY();
-
+                this.setScaleX(scaleNum);
+                this.setScaleY(scaleNum);
+                Log.i(TAG, "onTouchEvent:MOVe "+scaleNum);
                 break;
               default:
                   break;

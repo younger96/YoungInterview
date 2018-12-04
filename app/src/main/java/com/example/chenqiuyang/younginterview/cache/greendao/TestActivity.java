@@ -38,7 +38,7 @@ public class TestActivity extends Activity {
                 user.setId(id);
                 user.setName("小明"+id);
                 user.setAge(16);
-                userDao.insert(user); //userDao.insertOrReplace(user);
+                userDao.insertOrReplace(user); //userDao.insertOrReplace(user);
             }
         });
 
@@ -60,10 +60,11 @@ public class TestActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Log.i(TAG, "onClick: print");
-                List<User> users =  userDao.loadAll();
-                for (int i = 0; i < users.size(); i++) {
-                    Log.i(TAG, "onClick: "+users.get(i).toString());
-                }
+//                List<User> users =  userDao.loadAll();
+//                for (int i = 0; i < users.size(); i++) {
+//                    Log.i(TAG, "onClick: "+users.get(i).toString());
+//                }
+                Log.i(TAG, "onClick: "+userDao.loadByRowId(88).toString());
             }
         });
     }
