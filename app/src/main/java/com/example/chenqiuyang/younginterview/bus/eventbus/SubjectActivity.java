@@ -1,4 +1,4 @@
-package com.example.chenqiuyang.younginterview.eventbus;
+package com.example.chenqiuyang.younginterview.bus.eventbus;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -35,9 +35,9 @@ public class SubjectActivity extends Activity {
 
     @OnClick(R.id.button3)
     public void click(){
-        EventBus.getDefault().post(new MyEvent("Just do it"));
+        EvDispatcher.dispatch(new MyEvent("Just do it"));
 
         //发送粘性事件
-        EventBus.getDefault().postSticky(new MyEvent("Later do it"));
+       EvDispatcher.dispatchSticky(new MyEvent("Later do it"));
     }
 }

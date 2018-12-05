@@ -1,4 +1,4 @@
-package com.example.chenqiuyang.younginterview.eventbus;
+package com.example.chenqiuyang.younginterview.bus.eventbus;
 
 import android.util.Log;
 
@@ -31,6 +31,10 @@ public class EvDispatcher {
     public static void dispatch(Object object){
         Log.i(TAG,"dispatch object = "+String.valueOf(object));
         EventBus.getDefault().post(object);
+    }
+
+    public static void dispatchSticky(Object data){
+        EventBus.getDefault().postSticky(data);
     }
 
 

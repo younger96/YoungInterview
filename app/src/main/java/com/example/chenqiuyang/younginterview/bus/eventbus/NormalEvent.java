@@ -1,4 +1,4 @@
-package com.example.chenqiuyang.younginterview.eventbus;
+package com.example.chenqiuyang.younginterview.bus.eventbus;
 
 /**
  * Created by lihaibiao on 2018/5/14 12:27

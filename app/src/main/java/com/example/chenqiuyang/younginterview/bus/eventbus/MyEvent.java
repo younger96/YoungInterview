@@ -1,4 +1,4 @@
-package com.example.chenqiuyang.younginterview.eventbus;
+package com.example.chenqiuyang.younginterview.bus.eventbus;
 
 /**
  * 自定义发送消息的类型
