@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="ClickingButton">
+        <attr name="click_ing" format="reference"/>
+        <attr name="click_up" format="reference"/>
+    </declare-styleable>
+
+
+</resources>

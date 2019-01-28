@@ -6,7 +6,7 @@ public class SendAct extends BaseActivity {
 
     @Override
     protected void init() {
-        LocalBroadcast.sendMsg(LocalBroadcast.ACTION_1);
+        LocalBroadcast.sendMsg(this,LocalBroadcast.ACTION_1);
     }
 
     @Override

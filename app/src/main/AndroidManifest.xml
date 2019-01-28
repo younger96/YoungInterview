@@ -19,8 +19,20 @@
         <activity android:name=".act_frag.mvvm.view.MainActivity">
         </activity>
 
+        <activity android:name=".Test">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
 
         <activity android:name="com.example.chenqiuyang.younginterview.permisson.PermissionActivity">
+
+        </activity>
+
+        <activity android:name=".customView.DragPhotoActivity">
 
         </activity>
 
@@ -33,13 +45,16 @@
         </activity>
 
 
-        <activity android:name=".Test">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name="com.example.chenqiuyang.younginterview.rx.TestActivity">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
+
+        <activity android:name=".customView.view.bounce.BounceActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+
+        </activity>
+
+
     </application>
 
 </manifest>

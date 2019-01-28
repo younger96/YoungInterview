@@ -20,6 +20,8 @@ public class MyApp extends Application {
         mContext = this;
     }
 
+
+
     public static Context getmContext(){
         return mContext;
     }

@@ -349,7 +349,7 @@ public class BitmapUtils {
         canvas.drawRect(rec, paint);  
   
         canvas.drawBitmap(srcBitmap, borderWidth / 2, borderWidth / 2, null);  
-        canvas.save(Canvas.ALL_SAVE_FLAG);  
+        canvas.save();
         canvas.restore();  
         if (srcBitmap != null && !srcBitmap.isRecycled()) {  
             srcBitmap.recycle();  
