@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 
 public abstract class BaseFragment extends Fragment {
 
+    // test
     protected boolean isViewInitiated;
     protected boolean isVisibleToUser;
     protected boolean isDataInitiated;
